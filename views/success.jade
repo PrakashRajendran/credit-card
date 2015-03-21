@@ -1,0 +1,10 @@
+doctype html
+html
+  head
+    title #{title}
+    link(type='text/css', rel='stylesheet', href='/stylesheets/normalize.css')
+    link(type='text/css', rel='stylesheet', href='/stylesheets/style.css')
+  body
+    h1 Thank you for your purchase!
+    h3 Below is the payment response received from Stripe API
+    p #{ response }

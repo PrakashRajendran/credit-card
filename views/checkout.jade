@@ -1,0 +1,57 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    title Wine - Flave of the day
+    // INSERT CSS LINK HERE
+    link(type='text/css', rel='stylesheet', href='/stylesheets/normalize.css')
+    link(type='text/css', rel='stylesheet', href='/stylesheets/style.css')
+    // The required Stripe lib
+    script(type='text/javascript', src='https://js.stripe.com/v2/')
+    // jQuery is used only for this example; it isn't required to use Stripe
+    script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js')
+  body
+    header
+      // start header
+      h1 WELCOME
+      nav
+        // start navigation
+        ul
+          // unordered list item start
+          li
+            a(href='index.html') Home
+          li
+            a(href='/') About
+          li
+            a(href='/') Menu
+          li
+            a(href='/') Blog
+          li
+            a(href='/') My Cart
+        // /.unordered end
+      // /.end navigation
+    // /.end header
+    section.main
+      // main section class (features item, description, price and quantity)
+      #summary
+        .picture
+          // picture of the item
+          img(src='/images/wine.png', alt='wine', width='300')
+        // /.end picture
+        .information
+          // information of the item
+          h2 Some Kind of Wine
+          p#description
+            This wine is so good it will make you cry tears of crushed grapes, see unicorns in your dreams and give you the best excuse to call every single ex at 3 in the morning. It&apos;s just that good.
+          p
+            strong Made in France
+          p#quantity Quantity: #{Qty}
+          p#TotalAmount Total Amount: $ #{TotalAmountDollars}
+        #error.hidden
+    form(action='/charge', method='POST')
+     input(type='hidden', name='TotAmtCents', id='TotAmtCents', value='#{ TotalAmountCents }')
+     script.stripe-button(src='https://checkout.stripe.com/checkout.js', data-key='pk_test_X1uNxA8TbDpZD0sPL6nQuGHn', data-amount='2000', data-name='Test Credit Card', data-image='/128x128.png')
+    footer
+      // stuff at the bottom
+      small Legal stuff, links to other stuff etc etc etc
+    // /. end footer

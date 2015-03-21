@@ -1,0 +1,71 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    title Wine - Flave of the day
+    // INSERT CSS LINK HERE
+    link(type='text/css', rel='stylesheet', href='/stylesheets/normalize.css')
+    link(type='text/css', rel='stylesheet', href='/stylesheets/style.css')
+    script.
+      function populateModel() {
+      document.getElementById('Qty').value = document.getElementById('quantity').value;
+      document.getElementById('Price').value = document.getElementById('price').innerHTML.replace(/\$/g, '');
+      }
+  body
+    header
+      // start header
+      h1 WELCOME
+      nav
+        // start navigation
+        ul
+          // unordered list item start
+          li
+            a(href='index.html') Home
+          li
+            a(href='/') About
+          li
+            a(href='/') Menu
+          li
+            a(href='/') Blog
+          li
+            a(href='/') My Cart
+        // /.unordered end
+      // /.end navigation
+    // /.end header
+    section(class='main clearfix')
+      // main section class (features item, description, price and quantity)
+      .picture
+        // picture of the item
+        img(src='/images/wine.png', alt='wine', width='300')
+      // /.end picture
+      form(name='cart-form', id='cart', action='/checkout', method='POST')
+        input(type='hidden', name='Price', id='Price', value='400.38')
+        input(type='hidden', name='Qty', id='Qty', value='1')
+        .information
+          // information of the item
+          h2 Some Kind of Wine
+          p(id='description')
+            This wine is so good it will make you cry tears of crushed grapes, see unicorns in your dreams and give you the best excuse to call every single ex at 3 in the morning. It&apos;s just that good.
+          p
+            strong Made in France
+          p(id='price') $400.38
+          select(id='quantity', onChange='populateModel()')
+            option(value='1') 1
+            option(value='2') 2
+            option(value='3') 3
+            option(value='4') 4
+            option(value='5') 5
+            option(value='6') 6
+            option(value='7') 7
+            option(value='8') 8
+            option(value='9') 9
+            option(value='10') 10
+          br
+          br
+          input(id='checkout', type='submit', value='CHECKOUT')
+        // /. end information
+    // /.end section
+    footer
+      // stuff at the bottom
+      small Legal stuff, links to other stuff etc etc etc
+    // /. end footer
